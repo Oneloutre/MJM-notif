@@ -5,7 +5,7 @@ import os
 def connection(username, password):
     url_login = 'https://mjmcloud.com/login.php'
     protected_url = 'https://mjmcloud.com/etudiant/cahier-texte'
-    cookies_file = 'session_cookies.pkl'
+    cookies_file = 'files/session_cookies.pkl'
 
     session = requests.Session()
 
@@ -38,15 +38,15 @@ def connection(username, password):
 
 def creds_check():
     try:
-        if os.path.exists('creds.txt'):
-            with open('creds.txt', 'r') as f:
+        if os.path.exists('files/creds.txt'):
+            with open('files/creds.txt', 'r') as f:
                 username = f.readline().strip()
                 password = f.readline().strip()
             return username, password
         else:
             username = input('Nom d\'utilisateur: ')
             password = input('Mot de passe: ')
-            with open('creds.txt', 'w') as f:
+            with open('files/creds.txt', 'w') as f:
                 f.write(username + '\n' + password)
             return username, password
     except Exception as e:

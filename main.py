@@ -1,13 +1,12 @@
 from misc import connection
 import pickle
 
-cookies_file = 'session_cookies.pkl'
+cookies_file = 'files/session_cookies.pkl'
 
 
 def main():
 
     username, password = connection.creds_check()
-    print(username, password)
     response, session = connection.connection(username, password)
 
     if 'Ma carte d\'étudiant' in response.text:
