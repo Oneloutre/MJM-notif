@@ -23,7 +23,7 @@ def webhook_send(webhook, url_cours, title, color, start, end, description, prof
         "embeds": [
         {
             "type": "rich",
-            #"title": "Cours de " + prof,
+            "title": "\nCours de " + prof + " du " + start + " au " + end,
             "description": description,
             "color": int(color.replace("#", ""), 16),
             "thumbnail": {
@@ -34,10 +34,11 @@ def webhook_send(webhook, url_cours, title, color, start, end, description, prof
             "author": {
                 "name": title,
                 "url": url_cours,
+                "icon_url": "https://cdn-icons-png.flaticon.com/512/3378/3378118.png"
                 },
-                "icon_url": "https://cdn.discordapp.com/guilds/749473022821400596/users/70569212453191698/avatars/1b3e0342e581ad0313ba94cf6043494a.webp",
             "footer": {
                 "text": "Pour le " + start,
+                "icon_url": "https://cdn.onelots.fr/u/VakI1n.png"
                      },
             }]
     }

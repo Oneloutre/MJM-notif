@@ -22,7 +22,7 @@ def parser(session, webhook):
     for i in data:
         try:
             description, prof = scraper.analyse_page_devoirs(session, i['url'])
-            webhook_handler.webhook_send(webhook, i['url'], extract_text(i['title']), i['color'], date_transformer(i['start']), i['end'], description, prof)
+            webhook_handler.webhook_send(webhook, i['url'], extract_text(i['title']), i['color'], date_transformer(i['start']), date_transformer(i['end']), description, prof)
         except Exception as e:
             print('Erreur: ' + str(e))
             exit(1)

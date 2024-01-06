@@ -14,16 +14,17 @@ Il ne s'agit donc **pas** d'une application graphique à ouvrir sur son ordinate
 ## Fonctionnement :gear: :
 
 - le programme accède à la page des devoirs de MJM cloud grâce à vos identifiants
-- toutes les heures, il vérifie que la page n'a pas changé
+- tous les quart d'heure, il vérifie que la page n'a pas changé.
 - si elle a changé, il envoie un message sur Discord pour vous prévenir via une webhook
 
-voilà ce que peut faire le programme pour l'instant :
+voilà ce que peut faire le programme:
 
 - [x] se connecter à MJM cloud
 - [x] récupérer les devoirs
 - [x] envoyer un message sur Discord quand des devoirs sont trouvés
 - [x] afficher le contenu des devoirs
-- [ ] envoyer un message sur Discord quand un devoir est ajouté
+- [x] envoyer un message sur Discord quand un devoir est ajouté
+- [x] vérifier tous les quarts d'heures que les devoirs n'ont pas changé
 
 Si vous avez une suggestion, n'hésitez pas à ouvrir une issue !
 
@@ -37,6 +38,7 @@ cd MJM-notif
 pip install -r requirements.txt
 ```
 Une fois cela fait, vous pouvez lancer le programme avec la commande `python main.py`.
+Le programme va lancer un "deamon", donc le programme va tourner en arrière plan et vérifier toutes les quarts d'heure si des devoirs ont été ajoutés.
 
 ## Docker :whale: :
 
@@ -51,7 +53,9 @@ Quand le build est terminé, veillez à utiliser la commande `docker run -it mjm
 
 Si vous souhaitez contribuer au projet, vous pouvez ouvrir une issue ou une pull request. Je serai ravi de vous lire !
 
+## Auteur :pencil: :
 
+- Onelots (`onelots.` sur discord)
 
 ## Licence :scroll: :
 
