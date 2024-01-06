@@ -1,0 +1,5 @@
+Dans ce dossier vous trouverez (lorsque vous aurez rempli les informations demandées) :
+
+1 - un fichier creds.txt contenant votre email et votre mot de passe
+2 - un fichier cookie qui vous permettra de vous connecter automatiquement à votre compte
+3 - un fichier webhook.txt contenant l'url de votre webhook
