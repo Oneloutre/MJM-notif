@@ -4,6 +4,7 @@ import re
 from datetime import datetime
 
 
+
 def extract_text(input_text):
     match = re.search(r'\[\w+\]\[\/\w+\]|[^|]+', input_text)
     if match:
@@ -19,4 +20,12 @@ def date_transformer(input_date):
 def parser(session, webhook):
     data = scraper.recuperer_cahier_texte(session)
     for i in data:
-        webhook_handler.webhook_send(webhook, i['url'], extract_text(i['title']), i['color'], date_transformer(i['start']), i['end'])
+        try:
+            description, prof = scraper.analyse_page_devoirs(session, i['url'])
+            webhook_handler.webhook_send(webhook, i['url'], extract_text(i['title']), i['color'], date_transformer(i['start']), i['end'], description, prof)
+        except Exception as e:
+            print('Erreur: ' + str(e))
+            exit(1)
+
+
+

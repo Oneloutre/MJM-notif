@@ -17,14 +17,14 @@ def webhook_check():
         exit(1)
 
 
-def webhook_send(webhook, url_cours, title, color, start, end):
+def webhook_send(webhook, url_cours, title, color, start, end, description, prof):
     url = webhook
     data = {
         "embeds": [
         {
             "type": "rich",
-            "title": "Des devoirs ont été ajoutés !",
-            "description": title,
+            #"title": "Cours de " + prof,
+            "description": description,
             "color": int(color.replace("#", ""), 16),
             "thumbnail": {
                 "url": "https://storage.letudiant.fr/osp/cards/276/mjm-graphic-design-231102102947.jpg",
