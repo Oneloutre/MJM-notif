@@ -6,7 +6,7 @@
 
 ## Description :page_facing_up: :
 
-J'ai beaucoup entendu ma copine se plaindre du fait que des devoirs apparaissaient sur MJM cloud sans qu'elle ne soit prévenue. J'ai donc décidé de lui faire un petit programme qui lui envoie une notification sur Discord quand un devoir est ajouté.
+Ma copine a souvent des devoirs ajoutés dans un "cahier de texte" sur son espace étudiant MJM mais elle n'a pas de notification quand ca arrive. Avec ce script, elle recevra les notifications directement sur discord.
 
 Plus précisément, il s'agit d'un programme __server-side__ : il tourne sur un serveur et vous envoie des notifications sur Discord quand un devoir est ajouté sur MJM cloud.
 Il ne s'agit donc **pas** d'une application graphique à ouvrir sur son ordinateur.
@@ -67,6 +67,7 @@ Si vous souhaitez contribuer au projet, vous pouvez ouvrir une issue ou une pull
 ## Licence :scroll: :
 
 [License MIT](https://choosealicense.com/licenses/mit/)
+
 
 ## Nouveautés :loudspeaker: :
 
