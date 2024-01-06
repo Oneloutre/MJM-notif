@@ -33,7 +33,6 @@ def recuperer_cahier_texte(session):
 
     response = session.post(url, data=payload)
 
-
-    print(response.json())
+    return(response.json())
 
 
