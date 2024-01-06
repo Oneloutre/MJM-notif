@@ -31,8 +31,15 @@ def main():
                 scheduler.run_pending()
                 time.sleep(10)
     else:
-        os.remove("files/session_cookies.pkl")
-        main()
+        if os.path.exists(cookies_file):
+            os.remove("files/session_cookies.pkl")
+            main()
+        else:
+            print('Erreur: Connexion échouée!')
+            os.remove("files/creds.txt")
+            os.remove("files/webhook.txt")
+            main()
+
 
 
 if __name__ == '__main__':
