@@ -8,7 +8,7 @@ from datetime import datetime
 import os
 
 
-def comparer_devoirs_json(session):
+def comparer_devoirs_json(session, log_webhook):
     try:
         if not os.path.exists('files/devoirs.json'):
             with open('files/devoirs.json', 'w') as f:
@@ -18,6 +18,8 @@ def comparer_devoirs_json(session):
         devoirs = scraper.recuperer_cahier_texte(session)
         if devoirs == devoirs_json:
             print('Pas de nouveaux devoirs | ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            if os.path.exists('files/log_webhook.txt'):
+                webhook_handler.simple_send(log_webhook, 'Pas de nouveaux devoirs | ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         else:
             diff_elements = [item for item in devoirs if item not in devoirs_json]
             for i in diff_elements:

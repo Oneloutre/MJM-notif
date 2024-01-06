@@ -67,3 +67,8 @@ Si vous souhaitez contribuer au projet, vous pouvez ouvrir une issue ou une pull
 ## Licence :scroll: :
 
 [License MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Nouveautés :loudspeaker: :
+
+- ajout d'un fichier log_webhook.txt (facultatif, à ajouter soi-même) pour garder un oeil sur le conteneur docker (à paramétrer manuellement mais comme le webhook.txt)
