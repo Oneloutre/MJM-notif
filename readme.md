@@ -37,6 +37,9 @@ git clone https://github.com/Oneloutre/MJM-notif.git
 cd MJM-notif
 pip install -r requirements.txt
 ```
+
+:signal_strength: Python doit être >= 3.11 !!!! :signal_strength:
+
 Une fois cela fait, vous pouvez lancer le programme avec la commande `python main.py`.
 Le programme va vous demander vos identifiants (email et mdp mjm cloud) et [une webhook discord](https://support.discord.com/hc/fr/articles/228383668-Introduction-aux-Webhooks), puis un "daemon", donc le programme va tourner en arrière plan et vérifier toutes les quarts d'heure si des devoirs ont été ajoutés.
 
@@ -44,23 +47,15 @@ Le programme va vous demander vos identifiants (email et mdp mjm cloud) et [une 
 
 Vous pouvez également utiliser Docker pour lancer le programme.
 
-**:warning: Attention ! vous pouvez utiliser Docker, mais vous devez avant créer 2 fichiers dans le dossier `files` comme suit :**
-
-- un fichier `creds.txt` contenant vos identifiants MJM cloud, comme cela :
-```
-username
-password
-```
-- un fichier `webhook.txt` contenant votre webhook Discord, comme suit :
-```
-https://discord.com/api/webhooks/...
-```
-
-**UNE FOIS CELA FAIT, ET PAS AVANT**, vous pouvez lancer la commande suivante :
+Pour cela, il suffit de lancer la commande suivante :
 
 ```
-docker build -t mjm-notif . && docker run mjm-notif --name mjm-notif --restart always
+docker build -t mjm-notif . && docker run -it --name mjm-notifier --restart always mjm-notif
 ```
+le programme va vous demander vos identifiants et l'url de la webhook.
+dès que vous les aurez entrés, le programme va tourner en arrière plan et vérifier toutes les quarts d'heure si des devoirs ont été ajoutés.
+
+:warning: Attention, vous devez faire CTRL+P puis CTRL+Q pour quitter le container sans l'arrêter ! :warning:
 ## Contribuer :handshake: :
 
 Si vous souhaitez contribuer au projet, vous pouvez ouvrir une issue ou une pull request. Je serai ravi de vous lire !
