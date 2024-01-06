@@ -38,7 +38,7 @@ def webhook_send(webhook, url_cours, title, color, start, end):
                 "icon_url": "https://cdn.discordapp.com/guilds/749473022821400596/users/70569212453191698/avatars/1b3e0342e581ad0313ba94cf6043494a.webp",
             "footer": {
                 "text": "Pour le " + start,
-                    },
+                     },
             }]
     }
 
