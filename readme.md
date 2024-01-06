@@ -20,7 +20,9 @@ Il ne s'agit donc **pas** d'une application graphique à ouvrir sur son ordinate
 voilà ce que peut faire le programme pour l'instant :
 
 - [x] se connecter à MJM cloud
-- [ ] récupérer les devoirs
+- [x] récupérer les devoirs
+- [x] envoyer un message sur Discord quand des devoirs sont trouvés
+- [ ] afficher le contenu des devoirs
 - [ ] envoyer un message sur Discord quand un devoir est ajouté
 
 Si vous avez une suggestion, n'hésitez pas à ouvrir une issue !
