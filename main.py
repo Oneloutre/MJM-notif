@@ -1,6 +1,6 @@
 from misc import connection
 from misc import webhook_handler
-from scrapper import scraper
+from scrapper import json_parser
 import pickle
 
 
@@ -21,7 +21,7 @@ def main():
     else:
         print('Échec de la connexion. Vérifiez vos informations d\'identification.')
 
-    scraper.recuperer_cahier_texte(session)
+    json_parser.parser(session, webhook)
 
 if __name__ == '__main__':
     main()
