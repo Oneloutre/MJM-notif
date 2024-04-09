@@ -18,8 +18,7 @@ def comparer_devoirs_json(session, log_webhook):
         devoirs = scraper.recuperer_cahier_texte(session)
         if devoirs == devoirs_json:
             print('Pas de nouveaux devoirs | ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-            if os.path.exists('files/log_webhook.txt'):
-                webhook_handler.simple_send(log_webhook, 'Pas de nouveaux devoirs | ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            webhook_handler.simple_send(log_webhook, 'Pas de nouveaux devoirs | ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         else:
             diff_elements = [item for item in devoirs if item not in devoirs_json]
             for i in diff_elements:
