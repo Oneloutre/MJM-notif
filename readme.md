@@ -41,9 +41,10 @@ pip install -r requirements.txt
 :signal_strength: Python doit être >= 3.11 !!!! :signal_strength:
 
 Une fois cela fait, vous pouvez lancer le programme avec la commande `python main.py`.
-Le programme va vous demander vos identifiants (email et mdp mjm cloud) et [une webhook discord](https://support.discord.com/hc/fr/articles/228383668-Introduction-aux-Webhooks), puis un "daemon", donc le programme va tourner en arrière plan et vérifier toutes les quarts d'heure si des devoirs ont été ajoutés.
+<u> Pensez à créer un .env contenant EMAIL, PASSWORD, WEBHOOK et WEBHOOK_LOG </u>
 
 ## Docker :whale: :
+### Métode 1 : Construire l'image
 
 Vous pouvez également utiliser Docker pour lancer le programme.
 
@@ -56,6 +57,12 @@ le programme va vous demander vos identifiants et l'url de la webhook.
 dès que vous les aurez entrés, le programme va tourner en arrière plan et vérifier toutes les quarts d'heure si des devoirs ont été ajoutés.
 
 :warning: Attention, vous devez faire CTRL+P puis CTRL+Q pour quitter le container sans l'arrêter ! :warning:
+
+### Métode 2 : Utiliser l'image déjà construite
+
+Utilisez le docker-compose.yml fourni pour lancer le programme.
+n'oubliez pas de remplacer les creds par défaut avec les votres.
+
 ## Contribuer :handshake: :
 
 Si vous souhaitez contribuer au projet, vous pouvez ouvrir une issue ou une pull request. Je serai ravi de vous lire !
@@ -71,4 +78,5 @@ Si vous souhaitez contribuer au projet, vous pouvez ouvrir une issue ou une pull
 
 ## Nouveautés :loudspeaker: :
 
-- ajout d'un fichier log_webhook.txt (facultatif, à ajouter soi-même) pour garder un oeil sur le conteneur docker (à paramétrer manuellement mais comme le webhook.txt)
+- 1.0.1 : ajout d'un fichier log_webhook.txt (facultatif, à ajouter soi-même) pour garder un oeil sur le conteneur docker (à paramétrer manuellement mais comme le webhook.txt)
+- 1.1.0 : nettoyage du code + ajout du docker-compose.yml
