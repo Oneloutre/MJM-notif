@@ -4,9 +4,8 @@ import re
 from datetime import datetime
 
 
-
 def extract_text(input_text):
-    match = re.search(r'\[\w+\]\[\/\w+\]|[^|]+', input_text)
+    match = re.search(r'\[\w+]\[/\w+]|[^|]+', input_text)
     if match:
         result = match.group(0)
     else:
@@ -17,6 +16,7 @@ def extract_text(input_text):
 def date_transformer(input_date):
     return datetime.fromisoformat(input_date).strftime("%d/%m/%y à %H:%M")
 
+
 def parser(session, webhook):
     data = scraper.recuperer_cahier_texte(session)
     for i in data:
@@ -26,6 +26,3 @@ def parser(session, webhook):
         except Exception as e:
             print('Erreur: ' + str(e))
             exit(1)
-
-
-

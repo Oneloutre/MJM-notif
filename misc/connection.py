@@ -1,6 +1,6 @@
 import requests
 import pickle
-import os
+
 
 def connection(username, password):
     url_login = 'https://mjmcloud.com/login.php'

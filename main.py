@@ -22,17 +22,17 @@ def main():
     response, session = connection.connection(username, password)
 
     if 'Ma carte d\'étudiant' in response.text:
-            print('Connexion réussie!')
-            webhook_handler.simple_send(log_webhook, 'Connexion réussie!')
-            json_parser.parser(session, webhook)
-            with open(cookies_file, 'wb') as f:
-                pickle.dump(session.cookies, f)
-            scheduler = schedule.Scheduler()
-            scheduler.every(15).minutes.do(functools.partial(update_checker.comparer_devoirs_json, session, log_webhook))
+        print('Connexion réussie!')
+        webhook_handler.simple_send(log_webhook, 'Connexion réussie!')
+        json_parser.parser(session, webhook)
+        with open(cookies_file, 'wb') as f:
+            pickle.dump(session.cookies, f)
+        scheduler = schedule.Scheduler()
+        scheduler.every(15).minutes.do(functools.partial(update_checker.comparer_devoirs_json, session, log_webhook))
 
-            while True:
-                scheduler.run_pending()
-                time.sleep(10)
+        while True:
+            scheduler.run_pending()
+            time.sleep(10)
     else:
         if os.path.exists(cookies_file):
             os.remove("files/session_cookies.pkl")

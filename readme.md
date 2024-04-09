@@ -81,3 +81,4 @@ Si vous souhaitez contribuer au projet, vous pouvez ouvrir une issue ou une pull
 - 1.0.1 : ajout d'un fichier log_webhook.txt (facultatif, à ajouter soi-même) pour garder un oeil sur le conteneur docker (à paramétrer manuellement mais comme le webhook.txt)
 - 1.1.0 : nettoyage du code + ajout du docker-compose.yml
 - 1.2.0 : The multi-arch update : compatible avec arm64, armv6, armv7, linux/arm/v6, linux/ppc64le, linux/s390x, armhf et amd64 !!!
+- 1.2.1 : minor fixes (refactoring code to respect PEP8, fixing a little bug making everything restart without reason)

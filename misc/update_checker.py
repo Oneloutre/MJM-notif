@@ -1,5 +1,3 @@
-import schedule
-import time
 import json
 from scrapper import scraper
 from misc import webhook_handler
@@ -22,7 +20,7 @@ def comparer_devoirs_json(session, log_webhook):
         else:
             diff_elements = [item for item in devoirs if item not in devoirs_json]
             for i in diff_elements:
-                webhook = webhook_handler.webhook_check()
+                webhook = os.environ['WEBHOOK']
                 description, prof = scraper.analyse_page_devoirs(session, i['url'])
                 webhook_handler.webhook_send(webhook, i['url'], json_parser.extract_text(i['title']), i['color'], json_parser.date_transformer(i['start']), json_parser.date_transformer(i['end']), description, prof)
             with open('files/devoirs.json', 'w') as f:

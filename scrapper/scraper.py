@@ -1,7 +1,7 @@
-import requests
 import bs4
 from datetime import datetime, timedelta
 import re
+
 
 def recuperer_nom_professeur(string):
     try:
@@ -29,10 +29,11 @@ def recuperer_infos_etudiant(session):
         inscription_id = infos[2]['value']
         classe_id = infos[3]['value']
 
-        return(type_utilisateur, utilisateur_id, classe_id, inscription_id)
+        return type_utilisateur, utilisateur_id, classe_id, inscription_id
     except Exception as e:
         print('Erreur: ' + str(e))
         exit(1)
+
 
 def recuperer_cahier_texte(session):
     url = 'https://mjmcloud.com/json_list/cahier-texte-json.php'
@@ -52,7 +53,7 @@ def recuperer_cahier_texte(session):
 
     response = session.post(url, data=payload)
 
-    return(response.json())
+    return response.json()
 
 
 def analyse_page_devoirs(session, url):
@@ -62,7 +63,7 @@ def analyse_page_devoirs(session, url):
         result = soup.find('div', {'class': 'portlet-body'})
         professeur = recuperer_nom_professeur(result.text)
         devoirs = result.text.split('Cahier de texte : ', 1)[1]
-        return(devoirs, professeur)
+        return devoirs, professeur
     except Exception as e:
         print('Erreur: ' + str(e))
         exit(1)
