@@ -1,9 +1,8 @@
 version: '3.8'
 
-name: mjm-notifs
 services:
   mjm-notifs:
-    image: onelots/mjm-notifs:1.2.0
+    image: onelots/mjm-notifs:1.2.1
     restart: always
     environment:
       - EMAIL=email@example.com
