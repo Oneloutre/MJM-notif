@@ -1,0 +1,12 @@
+version: '3.8'
+
+name: mjm-notifs
+services:
+  mjm-notifs:
+    image: onelots/mjm-notifs:latest
+    restart: always
+    environment:
+      - EMAIL=email@example.com
+      - PASS=password
+      - WEBHOOK=discord.com/webhook
+      - WEBHOOK_LOG=discord.com/webhook
