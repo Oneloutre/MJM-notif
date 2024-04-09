@@ -1,6 +1,3 @@
 Dans ce dossier vous trouverez (lorsque vous aurez rempli les informations demandées) :
 
-1 - un fichier creds.txt contenant votre email et votre mot de passe
-2 - un fichier cookie qui vous permettra de vous connecter automatiquement à votre compte (si vous avez un problème de connexion, supprimez le fichier cookie)
-3 - un fichier webhook.txt contenant l'url de votre webhook
-4 - un fichier devoirs.json contenant les devoirs actuels, utilisé pour comparer si d'autres devoirs ont été ajoutés.
+1 - un fichier cookie qui vous permettra de vous connecter automatiquement à votre compte (si vous avez un problème de connexion, supprimez le fichier cookie)

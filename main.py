@@ -7,24 +7,23 @@ from misc import update_checker
 import schedule
 import time
 import functools
-
+from dotenv import load_dotenv
+load_dotenv()
 
 cookies_file = 'files/session_cookies.pkl'
-webhook = webhook_handler.webhook_check()
-log_webhook = webhook_handler.log_webhook_check()
+webhook = os.environ['WEBHOOK']
+log_webhook = os.environ['WEBHOOK_LOG']
+username = os.environ['EMAIL']
+password = os.environ['PASS']
 
 
 def main():
 
-    username, password = connection.creds_check()
     response, session = connection.connection(username, password)
-
-
 
     if 'Ma carte d\'étudiant' in response.text:
             print('Connexion réussie!')
-            if os.path.exists('files/log_webhook.txt'):
-                webhook_handler.simple_send(log_webhook, 'Connexion réussie!')
+            webhook_handler.simple_send(log_webhook, 'Connexion réussie!')
             json_parser.parser(session, webhook)
             with open(cookies_file, 'wb') as f:
                 pickle.dump(session.cookies, f)
@@ -40,12 +39,8 @@ def main():
             main()
         else:
             print('Erreur: Connexion échouée!')
-            if os.path.exists('files/log_webhook.txt'):
-                webhook_handler.simple_send(log_webhook, 'Erreur: Connexion échouée!')
-            os.remove("files/creds.txt")
-            os.remove("files/webhook.txt")
+            webhook_handler.simple_send(log_webhook, 'Erreur: Connexion échouée!')
             main()
-
 
 
 if __name__ == '__main__':
@@ -53,6 +48,5 @@ if __name__ == '__main__':
         main()
     except Exception as e:
         print('Erreur: ' + str(e))
-        if os.path.exists('files/log_webhook.txt'):
-            webhook_handler.simple_send(log_webhook, 'Erreur: ' + str(e))
+        webhook_handler.simple_send(log_webhook, 'Erreur: ' + str(e))
         main()
